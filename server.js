@@ -1,7 +1,6 @@
+require('newrelic');
 const express = require('express');
 const compress = require('compression');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
 const proxy = require('http-proxy-middleware');
 
 const port = 8000;
@@ -16,13 +15,8 @@ app.use(
   })
 );
 
-
 app.use(compress());
 app.use(express.static(__dirname + '/public'));
-
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/:id', express.static(__dirname + '/public'));
 
