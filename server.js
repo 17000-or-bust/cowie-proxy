@@ -18,7 +18,7 @@ app.use(
 app.use(
   '/api/photos',
   proxy({
-    target: 'http://ec2-54-159-114-20.compute-1.amazonaws.com',
+    target: 'http://ec2-52-90-207-0.compute-1.amazonaws.com',
     changeOrigin: true
   })
 );
